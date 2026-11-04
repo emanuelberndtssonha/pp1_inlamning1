@@ -33,6 +33,6 @@ public class Zone {
     // @Override betyder att vi ersätter den toString som alla klasser ärver.
     @Override
     public String toString() {
-        return "Zon " + number + " (" + name + ")";
+        return "Zon " + number + " " + name;
     }
 }
