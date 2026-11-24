@@ -13,10 +13,13 @@ public class TravelCard {
         cardCount = cardCount + 1;
         cardNumber = cardNumber + 1;
         this.tripCount = 0;
-        this.lastTrip = "ingen resa ännu";
+        this.lastTrip = null;
     }
 
     public boolean travel(Trip trip){
+        if (trip == null) {
+            return false;
+        }
         if (!pay(trip.getPrice())){
             return false;
         }
@@ -46,10 +49,11 @@ public class TravelCard {
     }
 
     public boolean topUp(int amount) {
-        if (balance + amount >= MAX_BALANCE){
+        if (balance + amount -1 >= MAX_BALANCE){
             return false;
-        }
-        else {
+        } else if (amount <=0) {
+            return false;
+        } else {
             balance += amount;
             return true;
         }
